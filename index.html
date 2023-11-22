@@ -5,6 +5,8 @@
     <title>GithubFinder</title>
     <link rel="stylesheet" href="https://bootswatch.com/5/litera/bootstrap.min.css">
     <link rel="stylesheet" href="main.css">
+    <script src="script.js" type="module"></script>
+    <script src="UserProfile.js" type="module"></script>
 </head>
 
 <body>
@@ -14,83 +16,38 @@
     </div>
 </nav>
 
-<main>
+<main id="main">
     <div class="container" id="user-search">
         <h1>Search GitHub Users</h1>
         <p class="lead">Enter a username to fetch a user profile and repos</p>
-        <input type="text" class="form-control" placeholder="Enter Username" id="inputDefault">
+        <input type="text" class="form-control" placeholder="Enter Username" id="input">
     </div>
+<!--    -->
+        <div class="container d-flex after-search" id="latest-repo">
+            <h2>Latest Repos</h2>
+            <div class="repo-container flex-column after-search">
+                <div class="repo-info d-flex after-search">
+                    <p>repo-name</p>
+                    <div class="repo-badge after-search">
+                        <span class="badge bg-primary">Starts: </span>
+                        <span class="badge bg-secondary">Watchers: </span>
+                        <span class="badge bg-success">Forks: </span>
+                    </div>
+                </div>
+            </div>
 
-    <!-- 프로필 관련 -->
-<!--    <div class="container after-search" id="user-info">-->
-<!--        <div class="card mb-3">-->
-<!--            <h3 class="card-header">Username</h3>-->
-<!--            <div id="user-details">-->
-<!--                <div id="user-profile">-->
-<!--                    <img src="img/default-placeholder.png" width="200vw" height="200vw" alt="프로필 사진">-->
-<!--                    <button class="btn btn-lg btn-primary" type="button">View Profile</button>-->
-<!--                </div>-->
-<!--                <div>-->
-<!--                    <div class="button-container">-->
-<!--                        <span class="badge bg-primary">Public Repos: </span>-->
-<!--                        <span class="badge bg-secondary">Public Gists: </span>-->
-<!--                        <span class="badge bg-success">Followers: </span>-->
-<!--                        <span class="badge bg-info">Following: </span>-->
-<!--                    </div>-->
 
-<!--                    <ul class="list-group" id="user-details-list">-->
-<!--                        <li class="list-group-item d-flex justify-content-between align-items-center user-detail-info">-->
-<!--                            Company:-->
-<!--                        </li>-->
-<!--                        <li class="list-group-item d-flex justify-content-between align-items-center user-detail-info">-->
-<!--                            Website/Blog:-->
-<!--                        </li>-->
-<!--                        <li class="list-group-item d-flex justify-content-between align-items-center user-detail-info">-->
-<!--                            Location:-->
-<!--                        </li>-->
-<!--                        <li class="list-group-item d-flex justify-content-between align-items-center user-detail-info">-->
-<!--                            Member Since:-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-    <!---->
-    <!-- 레포지토리 관련 -->
-<!--    <div class="container d-flex after-search" id="latest-repo">-->
-<!--        <h2>Latest Repos</h2>-->
-<!--        <div class="repo-container flex-column after-search">-->
-<!--            <div class="repo-info d-flex after-search">-->
-<!--                <p>repo-name</p>-->
-<!--                <div class="repo-badge after-search">-->
-<!--                    <span class="badge bg-primary">Starts: </span>-->
-<!--                    <span class="badge bg-secondary">Watchers: </span>-->
-<!--                    <span class="badge bg-success">Forks: </span>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--        <div class="repo-container flex-column">-->
-<!--            <div class="repo-info d-flex">-->
-<!--                <p>repo-name</p>-->
-<!--                <div class="repo-badge">-->
-<!--                    <span class="badge bg-primary">Starts: </span>-->
-<!--                    <span class="badge bg-secondary">Watchers: </span>-->
-<!--                    <span class="badge bg-success">Forks: </span>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-    <!--    -->
-
-<!--  찾지 못했을 때  -->
-    <div class="error">
-        <img src="img/oops%20128.png">
-        <h1>I can't found user...</h1>
-    </div>
-
+            <div class="repo-container flex-column">
+                <div class="repo-info d-flex">
+                    <p>repo-name</p>
+                    <div class="repo-badge">
+                        <span class="badge bg-primary">Starts: </span>
+                        <span class="badge bg-secondary">Watchers: </span>
+                        <span class="badge bg-success">Forks: </span>
+                    </div>
+                </div>
+            </div>
+        </div>
 </main>
-
 </body>
 </html>

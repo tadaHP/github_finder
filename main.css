@@ -77,6 +77,10 @@ li {
     display: block;
     margin: 0 auto;
     text-align: center;
-    color: crimson;
+    color: var(--bs-warning);
+}
+
+.error img {
+    width: 30vw;
 }
 
