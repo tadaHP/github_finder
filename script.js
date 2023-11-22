@@ -30,6 +30,8 @@ usernameInputElement.addEventListener('keypress', function (event) {
 function successHandler(jsonData) {
     let latestRepoContainer
 
+    console.log(jsonData);
+
     fetch(jsonData['repos_url'])
         .then(response => {
             return response.json();

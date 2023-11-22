@@ -4,14 +4,22 @@ export default class UserProfile {
         userProfileContainer.classList.add('container', 'after-search', 'card', 'mb-3');
         userProfileContainer.id = 'user-info';
 
-        let h3 = document.createElement('h3');
-        h3.classList.add('card-header')
-        h3.textContent = jsonData['login'];
+        let username = document.createElement('h3');
+        username.classList.add('card-header')
+        username.textContent = jsonData['login'];
 
         let userDetailContainer = document.createElement('div');
         userDetailContainer.id = 'user-details';
 
-        userProfileContainer.append(h3, userDetailContainer);
+        let commitChart = document.createElement('h3');
+        commitChart.id = 'commit-calendar-header'
+        commitChart.innerHTML =`<strong>`+ jsonData['login']+` 님의 잔디,</strong> 이만큼 자랐어요!`
+
+        let chartImage = document.createElement("img");
+        chartImage.id = 'chart-image';
+        chartImage.src = 'https://ghchart.rshah.org/' + jsonData['login'];
+
+        userProfileContainer.append(username, userDetailContainer, commitChart, chartImage);
 
         userDetailContainer.append(
             this.#makeUserProfileImageElement(jsonData),

@@ -90,3 +90,11 @@ li {
     width: 30vw;
 }
 
+#commit-calendar-header {
+    margin-left: 1vw;
+    border-bottom: 1px solid rgba(108, 117, 125, 0.3);;
+}
+
+#chart-image {
+    margin: 1vw;
+}
