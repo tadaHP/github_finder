@@ -7,11 +7,13 @@ export default class UserRepo {
         let h2 = document.createElement('h2');
         h2.textContent = 'Latest Repos';
 
+        console.log(h2)
+
         let repoContainers = this.#makeRepoContainers(repoJsonData);
 
         repoContainer.append(h2, repoContainers);
 
-        return repoContainers;
+        return repoContainer;
     }
 
     #makeRepoContainers(repoJsonData) {

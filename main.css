@@ -63,7 +63,11 @@ li {
     color: var(--bs-link-color);
     justify-content: space-between;
 
-    margin: 1vw 19.5vw;
+    margin: 1vw 0;
+}
+
+.badge {
+    margin-right: 0.5vw;
 }
 
 .repo-info p {
