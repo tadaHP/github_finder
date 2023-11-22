@@ -1,6 +1,8 @@
 import UserProfile from './UserProfile.js';
+import UserRepo from "./UserRepo.js";
 
-let userProfile = new UserProfile;
+let userProfile = new UserProfile();
+let userRepo = new UserRepo();
 let usernameInputElement = document.getElementById("input");
 let main = document.getElementById("main");
 const userInfoRequestUrl = "https://api.github.com/users/"
@@ -26,8 +28,20 @@ usernameInputElement.addEventListener('keypress', function (event) {
 });
 
 function successHandler(jsonData) {
-    container.append(userProfile.makeUserProfile(jsonData));
-    main.append(container);
+    let latestRepoContainer
+
+    fetch(jsonData['repos_url'])
+        .then(response => {
+            return response.json();
+        })
+        .then(responseJsonData => {
+            console.log(responseJsonData);
+            latestRepoContainer = userRepo.makeLatestRepos(responseJsonData);
+            container.append(userProfile.makeUserProfile(jsonData), latestRepoContainer);
+            main.append(container);
+        });
+
+
 }
 
 

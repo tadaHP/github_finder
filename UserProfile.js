@@ -21,10 +21,6 @@ export default class UserProfile {
         return userProfileContainer;
     }
 
-    #makeLatestRepos(jsonData) {
-        let repoContainer = document.createElement('div');
-    }
-
     #makeUserProfileImageElement(jsonData) {
         let userProfileElement = document.createElement('div');
         userProfileElement.id = 'user-profile';
