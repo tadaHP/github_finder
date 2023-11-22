@@ -68,3 +68,15 @@ li {
     margin: 0;
 }
 
+.error {
+    display: block;
+    margin-top: 1vw;
+}
+
+.error * {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    color: crimson;
+}
+
