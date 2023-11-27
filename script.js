@@ -8,20 +8,29 @@ let main = document.getElementById("main");
 const userInfoRequestUrl = "https://api.github.com/users/"
 let container = document.createElement('div');
 
+let loadingIndicator = document.createElement("div");
+loadingIndicator.classList.add('loader', 'loader-black', 'loader-1');
+
 usernameInputElement.addEventListener('keypress', function (event) {
     if (event.key === 'Enter') {
         let username = event.target.value;
         container.innerHTML = '';
+        console.log(username);
+
+        main.append(loadingIndicator);
+        document.querySelector('.loader').style.display = 'inline-block';
 
         fetch(userInfoRequestUrl + username)
             .then(response => {
                 if (!response.ok) {
+                    document.querySelector('.loader').style.display = 'none';
                     failureHandler(`I can't found user...`);
                     return;
                 }
                 return response.json();
             })
             .then(jsonData => {
+                document.querySelector('.loader').style.display = 'none';
                 successHandler(jsonData);
             });
     }
@@ -30,14 +39,12 @@ usernameInputElement.addEventListener('keypress', function (event) {
 function successHandler(jsonData) {
     let latestRepoContainer
 
-    console.log(jsonData);
 
     fetch(jsonData['repos_url'])
         .then(response => {
             return response.json();
         })
         .then(responseJsonData => {
-            console.log(responseJsonData);
             latestRepoContainer = userRepo.makeLatestRepos(responseJsonData);
             container.append(userProfile.makeUserProfile(jsonData), latestRepoContainer);
             main.append(container);
